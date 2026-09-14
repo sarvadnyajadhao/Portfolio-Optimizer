@@ -13,7 +13,7 @@ of every one.
 ## Project structure
 
 ```
-portfolio_optimizer/
+Portfolio-Optimizer/
 ├── optimizer.py      # Pure math engine (MPT, SLSQP, Monte Carlo, VaR/CVaR) — no network calls
 ├── data_loader.py     # Fetches, cleans, and currency-converts price data via yfinance
 ├── app.py             # Streamlit dashboard tying the two together
@@ -108,25 +108,16 @@ GLOSSARY.md.
    or a simple momentum/value/size split, useful if this feeds into the
    same finance-research workflow as your Nifty macro paper
 
-## Presenting this on GitHub / your CV
+## Project context
 
-This was built as a portfolio piece (for a Master's application, not a
-college submission), so a few things worth doing before you link it:
+This project was developed as an independent finance and quantitative
+analysis portfolio project to apply Modern Portfolio Theory to real-world
+multi-market financial data.
 
-1. **Add screenshots** of the dashboard (frontier chart + allocation pies)
-   to this README — GitHub visitors judge a project by its README image
-   before they read a single line of code.
-2. **One-line CV description**: something like *"Built a multi-market
-   (India/US/Europe) portfolio optimizer implementing Modern Portfolio
-   Theory — Max-Sharpe/Min-Vol optimization, efficient frontier, VaR/CVaR,
-   and an out-of-sample backtest, deployed as an interactive Streamlit app."*
-3. **Deploy it** (optional but strong): Streamlit Community Cloud
-   (streamlit.io/cloud) hosts `app.py` for free straight from a GitHub repo,
-   so you can link a *live demo*, not just code.
-4. Keep the **Known limitations** section above in the README as-is — for
-   a finance-adjacent Master's application, showing you understand a
-   model's weaknesses is more convincing than only showing it "working."
-   ## Screenshots
+The implementation combines portfolio optimization, statistical risk
+analysis, currency conversion, visualization, and out-of-sample evaluation
+in an interactive Streamlit application.
+ ## Screenshots
 
 ### Portfolio Optimization Dashboard
 ![Portfolio Optimization Dashboard](portfolio_optimizer_screenshot_1.png)
