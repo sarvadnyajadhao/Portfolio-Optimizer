@@ -126,3 +126,13 @@ college submission), so a few things worth doing before you link it:
 4. Keep the **Known limitations** section above in the README as-is — for
    a finance-adjacent Master's application, showing you understand a
    model's weaknesses is more convincing than only showing it "working."
+   ## Screenshots
+
+### Portfolio Optimization Dashboard
+![Portfolio Optimization Dashboard](portfolio_optimizer_screenshot_1.png)
+
+### Efficient Frontier & Portfolio Allocation
+![Efficient Frontier and Portfolio Allocation](portfolio_optimizer_screenshot_2.png)
+
+### Risk Analysis & Backtesting
+![Risk Analysis and Backtesting](portfolio_optimizer_screenshot_3.png)
