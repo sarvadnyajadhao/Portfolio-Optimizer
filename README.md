@@ -117,7 +117,7 @@ multi-market financial data.
 The implementation combines portfolio optimization, statistical risk
 analysis, currency conversion, visualization, and out-of-sample evaluation
 in an interactive Streamlit application.
- ## Screenshots
+## Screenshots
 
 ### Portfolio Optimization Dashboard
 ![Portfolio Optimization Dashboard](portfolio_optimizer_screenshot_1.png)
