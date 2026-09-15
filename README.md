@@ -13,8 +13,7 @@ of every one.
 ## Project structure
 
 ```
-Portfolio-Optimizer/
-├── optimizer.py      # Pure math engine (MPT, SLSQP, Monte Carlo, VaR/CVaR) — no network calls
+├── optimizer.py       # Pure math engine (MPT, SLSQP, Monte Carlo, VaR/CVaR) — no network calls
 ├── data_loader.py     # Fetches, cleans, and currency-converts price data via yfinance
 ├── app.py             # Streamlit dashboard tying the two together
 ├── requirements.txt
@@ -84,30 +83,31 @@ GLOSSARY.md.
 ## Known limitations (worth stating in a writeup, not hiding)
 
 - Expected returns are estimated from **historical means**, which are
-  notoriously noisy forward-looking estimates — this is the single biggest
-  weakness of textbook MPT, not a bug in this code
+  notoriously noisy forward-looking estimates — this is one of the major
+  weaknesses of textbook MPT, not a bug in this code
 - The backtest has **no rebalancing, transaction costs, or slippage** —
   it is a lower bound on real-world friction, not a performance claim
-- VaR/CVaR are computed from the same historical window used to fit the
-  portfolio, so they describe the past, not a guaranteed future loss bound
-
+- VaR/CVaR are **historical, non-parametric estimates** based on the available
+  historical return data, so they describe past tail losses rather than
+  providing a guaranteed future loss bound
+  
 ## Roadmap for extending this (in rough order of effort)
 
 1. **Rolling-window backtest** — instead of one train/test split, re-optimize
    weights every N days on a trailing window and chain the results together
    (a real walk-forward backtest instead of the current single-split version)
-2. **Benchmark comparison** — pull Nifty 50 or S&P 500 as a benchmark series
-   and report tracking error / information ratio alongside Sharpe
+2. **Market benchmark comparison** — add Nifty 50 or S&P 500 as a market
+   benchmark and report tracking error / information ratio alongside Sharpe
 3. **Black-Litterman model** — blend market-implied equilibrium returns with
    your own views, rather than relying purely on historical means (addresses
    the biggest limitation above)
 4. **Hierarchical Risk Parity (HRP)** — a robustness alternative to
-   mean-variance optimization that doesn't require inverting the covariance
-   matrix, so it degrades more gracefully with many correlated assets
+   mean-variance optimization that can be more stable when many assets are
+   highly correlated
 5. **Factor exposure** — regress portfolio returns on Fama-French factors
-   or a simple momentum/value/size split, useful if this feeds into the
-   same finance-research workflow as your Nifty macro paper
-
+   or a simple momentum/value/size split to understand the portfolio's
+   underlying sources of return and risk
+   
 ## Project context
 
 This project was developed as an independent finance and quantitative
