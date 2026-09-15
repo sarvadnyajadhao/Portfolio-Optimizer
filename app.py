@@ -41,11 +41,15 @@ with st.sidebar:
     )
     start_date = st.date_input("Start date", value=pd.to_datetime("2021-01-01"))
     end_date = st.date_input("End date", value=pd.to_datetime("today"))
-    risk_free_rate = st.slider("Risk-free rate (annual)", 0.0, 0.15, 0.07, 0.005,
-                                help="~7% is a reasonable proxy for the Indian 10Y G-Sec yield; use ~0.05 for US T-bills.")
+    risk_free_rate = st.slider(
+        "Risk-free rate (annual)", 0.0, 0.15, 0.07, 0.005,
+        help="Use a market-appropriate annual risk-free rate. For example, you might use a government bond yield as a proxy."
+    )
     allow_short = st.checkbox("Allow short-selling (weights can go negative)", value=False)
-    convert_currency = st.checkbox("Convert all prices to USD before optimizing", value=True,
-                                    help="Turn this off only if every ticker you entered already trades in the same currency.")
+       convert_currency = st.checkbox(
+           "Convert all prices to USD before optimizing", 
+           value=True,
+           help="Turn this off only if every ticker you entered already trades in the same currency.")
     n_frontier_points = st.slider("Efficient frontier resolution", 10, 100, 40)
     n_mc = st.slider("Monte Carlo portfolios (for the scatter cloud)", 500, 20000, 5000, step=500)
     run_button = st.button("Run optimization", type="primary")
